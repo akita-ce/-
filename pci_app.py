@@ -1,4 +1,11 @@
 import streamlit as st
+import pandas as pd
+from datetime import datetime
+import time
+import matplotlib.pyplot as plt
+import numpy as np
+import math
+import os
 
 # Secrets画面で password = "あきた" と設定している前提
 if "authenticated" not in st.session_state:
@@ -14,13 +21,6 @@ if not st.session_state.authenticated:
         st.error("パスワードが違います")
     st.stop() # 正解するまでこれ以降のコードを実行しない
 
-import pandas as pd
-from datetime import datetime
-import time
-import matplotlib.pyplot as plt
-import numpy as np
-import math
-import os
 
 # --- 0. マスターデータ読み込み関数 (シート構造保持版) ---
 @st.cache_data
