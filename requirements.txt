@@ -3,3 +3,4 @@ pandas
 matplotlib
 fpdf2
 streamlit-pdf-viewer
+openpyxl
