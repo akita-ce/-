@@ -1,4 +1,19 @@
 import streamlit as st
+
+# Secrets画面で password = "あきた" と設定している前提
+if "authenticated" not in st.session_state:
+    st.session_state.authenticated = False
+
+if not st.session_state.authenticated:
+    # 画面中央にパスワード入力だけを表示
+    pwd = st.text_input("パスワードを入力してください", type="password")
+    if pwd == st.secrets["password"]:
+        st.session_state.authenticated = True
+        st.rerun()
+    elif pwd != "":
+        st.error("パスワードが違います")
+    st.stop() # 正解するまでこれ以降のコードを実行しない
+
 import pandas as pd
 from datetime import datetime
 import time
